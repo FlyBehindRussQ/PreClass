@@ -1,15 +1,15 @@
 import sqlite3,openpyxl
 from xlsxwriter.workbook import Workbook
-import typing
-from PyQt5 import QtCore
-from PyQt5.QtCore import Qt,QCoreApplication
-from PyQt5.QtWidgets import QMainWindow, QFileDialog,QTableWidgetItem, QWidget
+
+from PyQt5 import QtWidgets
+from PyQt5.QtGui import QFont
+from PyQt5.QtCore import Qt, QCoreApplication, QRect
 from DataBaseWidget import Ui_MainWindow
 
 import os
 import data
 
-class imports(QMainWindow, Ui_MainWindow):
+class imports(QtWidgets.QMainWindow, Ui_MainWindow):
     def __del__(self):
         pass
     

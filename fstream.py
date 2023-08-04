@@ -113,25 +113,39 @@ class Fstream(imports):
     def DB_New(self,name):
         db = sqlite3.connect("motor.db")
         cur = db.cursor()
-        sql = 'CREATE TABLE '+name
+        sql = 'CREATE TABLE '+name+"(num int,company text,id text,type text,size text,power real,voltage real,current real,speed text,efficiency real,powerfactor real,frequency text,torque real,mass text,pole text)"
         cur.execute(sql)
+        data.table_len.append(0)
         data.table_list.append(name)
         data.table_index = len(data.table_list) - 1
-        data.table_len.append(0)
+        db.commit()
         db.close()
     
-    def DB_Cls(self):
+    def DB_Drp(self,index):
         db = sqlite3.connect("motor.db")
         cur = db.cursor()
-        sql = ''
+        sql = 'DROP TABLE '+data.table_list[index]
         cur.execute(sql)
+        data.table_len.pop(index)
+        data.table_list.pop(index)
+        if index==data.table_index:
+            data.table_index = index - 1
+        db.commit()
         db.close()
     
-    def DB_Add(self):
+    def DB_Add(self,cargo):
         db = sqlite3.connect("motor.db")
         cur = db.cursor()
-        sql = ''
-        cur.execute(sql)
+        name = data.table_list[data.table_index]
+        sql_1 = f'''INSERT INTO {name}(num,company,id,type,size,power,voltage,current,speed,efficiency,powerfactor,frequency,torque,mass,pole) VALUES(?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)'''
+        sql_2 = f'''INSERT INTO whole(num,company,id,type,size,power,voltage,current,speed,efficiency,powerfactor,frequency,torque,mass,pole) VALUES(?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)'''
+        data.table_len[data.table_index] += 1
+        cargo.insert(0,data.table_len[data.table_index])
+        cur.execute(sql_1,cargo)
+        data.table_len[0] += 1
+        cargo[0] = data.table_len[0]
+        cur.execute(sql_2,cargo)
+        db.commit()
         db.close()
     
     def DB_Del(self):
@@ -142,7 +156,7 @@ class Fstream(imports):
         db.close()
     
     def DB_Import(self):
-        temp = QFileDialog.getOpenFileName(self, "选取xlsx文件", r"name.xlsx","Excel File(*.xlsx;*.xls)")
+        temp = QtWidgets.QFileDialog.getOpenFileName(self, "选取xlsx文件", r"name.xlsx","Excel File(*.xlsx;*.xls)")
         if temp[0] == '':
             self.dial("导入表格文件失败！",catagory="Error")
             return

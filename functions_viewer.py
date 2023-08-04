@@ -26,18 +26,19 @@ class Viewer(Fstream):
         for lines in data.content:
             for i in range(0,len(data.visible)):
                 if data.visible[i]:
-                    newItem = QTableWidgetItem(str(lines[i]))
+                    newItem = QtWidgets.QTableWidgetItem(str(lines[i]))
                     newItem.setFlags(Qt.ItemIsSelectable | Qt.ItemIsEnabled)
                     self.Monitor.setItem(row_count,col_count,newItem)
                     col_count += 1
             for i in range(col_count,len(data.visible)):
-                newItem = QTableWidgetItem(0)
+                newItem = QtWidgets.QTableWidgetItem(0)
                 newItem.setFlags(Qt.ItemIsSelectable | Qt.ItemIsEnabled)
                 self.Monitor.setItem(row_count,i,newItem)
             row_count += 1
             col_count = 0
             if row_count==self.Monitor.rowCount():
                 self.Monitor.insertRow(row_count)
+        self.Monitor.removeRow(row_count)
     
     
     def select_Hide(self,index):

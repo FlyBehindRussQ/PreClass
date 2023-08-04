@@ -193,7 +193,7 @@
    <widget class="QWidget" name="viewer" native="true">
     <property name="geometry">
      <rect>
-      <x>1110</x>
+      <x>820</x>
       <y>100</y>
       <width>271</width>
       <height>565</height>
@@ -1563,8 +1563,8 @@
       <rect>
        <x>10</x>
        <y>10</y>
-       <width>121</width>
-       <height>35</height>
+       <width>120</width>
+       <height>50</height>
       </rect>
      </property>
      <property name="font">
@@ -1578,7 +1578,7 @@
       <number>1</number>
      </property>
      <property name="text">
-      <string>导入</string>
+      <string>导入表格</string>
      </property>
     </widget>
     <widget class="QPushButton" name="pushButton_exp">
@@ -1586,8 +1586,8 @@
       <rect>
        <x>140</x>
        <y>10</y>
-       <width>121</width>
-       <height>35</height>
+       <width>120</width>
+       <height>50</height>
       </rect>
      </property>
      <property name="font">
@@ -1601,16 +1601,16 @@
       <number>1</number>
      </property>
      <property name="text">
-      <string>导出</string>
+      <string>导出表格</string>
      </property>
     </widget>
     <widget class="QPushButton" name="pushButton_new">
      <property name="geometry">
       <rect>
        <x>10</x>
-       <y>90</y>
-       <width>121</width>
-       <height>35</height>
+       <y>70</y>
+       <width>120</width>
+       <height>50</height>
       </rect>
      </property>
      <property name="font">
@@ -1624,16 +1624,16 @@
       <number>1</number>
      </property>
      <property name="text">
-      <string>新建表</string>
+      <string>新建表格</string>
      </property>
     </widget>
-    <widget class="QPushButton" name="pushButton_cls">
+    <widget class="QPushButton" name="pushButton_drp">
      <property name="geometry">
       <rect>
        <x>140</x>
-       <y>90</y>
-       <width>121</width>
-       <height>35</height>
+       <y>70</y>
+       <width>120</width>
+       <height>50</height>
       </rect>
      </property>
      <property name="font">
@@ -1647,7 +1647,7 @@
       <number>1</number>
      </property>
      <property name="text">
-      <string>删除表</string>
+      <string>删除表格</string>
      </property>
     </widget>
     <widget class="QPushButton" name="pushButton_add">
@@ -1655,8 +1655,8 @@
       <rect>
        <x>10</x>
        <y>170</y>
-       <width>121</width>
-       <height>35</height>
+       <width>120</width>
+       <height>50</height>
       </rect>
      </property>
      <property name="font">
@@ -1678,8 +1678,8 @@
       <rect>
        <x>140</x>
        <y>170</y>
-       <width>121</width>
-       <height>35</height>
+       <width>120</width>
+       <height>50</height>
       </rect>
      </property>
      <property name="font">
@@ -1693,13 +1693,13 @@
       <string>删除项</string>
      </property>
     </widget>
-    <widget class="QLineEdit" name="input_new_edit">
+    <widget class="QPushButton" name="pushButton_gai">
      <property name="geometry">
       <rect>
-       <x>100</x>
-       <y>130</y>
-       <width>141</width>
-       <height>30</height>
+       <x>10</x>
+       <y>230</y>
+       <width>120</width>
+       <height>50</height>
       </rect>
      </property>
      <property name="font">
@@ -1709,45 +1709,11 @@
        <bold>true</bold>
       </font>
      </property>
-    </widget>
-    <widget class="QPushButton" name="input_new_done">
-     <property name="geometry">
-      <rect>
-       <x>240</x>
-       <y>130</y>
-       <width>20</width>
-       <height>30</height>
-      </rect>
-     </property>
-     <property name="font">
-      <font>
-       <pointsize>12</pointsize>
-       <weight>50</weight>
-       <bold>false</bold>
-      </font>
+     <property name="toolTipDuration">
+      <number>1</number>
      </property>
      <property name="text">
-      <string>√</string>
-     </property>
-    </widget>
-    <widget class="QLabel" name="input_new_text">
-     <property name="geometry">
-      <rect>
-       <x>10</x>
-       <y>130</y>
-       <width>91</width>
-       <height>30</height>
-      </rect>
-     </property>
-     <property name="font">
-      <font>
-       <pointsize>15</pointsize>
-       <weight>50</weight>
-       <bold>false</bold>
-      </font>
-     </property>
-     <property name="text">
-      <string>表格名称</string>
+      <string>修订项</string>
      </property>
     </widget>
    </widget>
@@ -1785,8 +1751,6 @@
     <property name="font">
      <font>
       <pointsize>15</pointsize>
-      <weight>75</weight>
-      <bold>true</bold>
      </font>
     </property>
     <property name="text">
