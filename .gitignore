@@ -2,4 +2,4 @@ __pycache__/
 motor.db
 motor.xlsx
 -- SQLite.sql
-图书管理系统3.0.py
+*.xlsx

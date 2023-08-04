@@ -13,6 +13,7 @@ code_counts = 0
 table_len = []
 table_list = []
 table_index = 0
+table_empty = True
 
 ##########################
 ###       Viewer       ###

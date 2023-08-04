@@ -7,6 +7,10 @@ class MyMainWindow(Viewer,Editor,Fstream):
         super(Viewer, self).__init__(parent)
         super(Editor, self).__init__(parent)
         super(Fstream, self).__init__(parent)
+        self.init_Viewer()
+        self.signals_Viewer()
+        self.init_Editor()
+        self.signals_Editor()
         self.pushButton_mode.clicked.connect(lambda: self.mode_Changed(1 - data.mode))
         self.set_Table.activated.connect(self.table_Changed)
         self.mode_Changed(0)
@@ -17,8 +21,10 @@ class MyMainWindow(Viewer,Editor,Fstream):
     def table_Changed(self,params):
         data.table_index = params
         if data.mode==0:
+            self.init_Viewer()
             self.display_view()
         elif data.mode==1:
+            self.init_Editor()
             self.display_edit()
     
     def mode_Changed(self, index):
@@ -35,11 +41,9 @@ class MyMainWindow(Viewer,Editor,Fstream):
         
         if data.mode==0:
             self.init_Viewer()
-            self.signals_Viewer()
             self.display_view()
         
         if data.mode==1:
             self.init_Editor()
-            self.signals_Editor()
             self.display_edit()
     

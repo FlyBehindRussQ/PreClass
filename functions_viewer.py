@@ -7,7 +7,7 @@ class Viewer(Fstream):
     
     def display_view(self):
         self.Monitor.clearContents()
-        self.Monitor.setRowCount(20)
+        self.Monitor.setRowCount(1)
         self.DB_Read(data.table_index)
         
         col_count = 0
@@ -20,7 +20,10 @@ class Viewer(Fstream):
         for i in range(col_count,len(data.visible)):
             item = self.Monitor.horizontalHeaderItem(i)
             item.setText(_translate("MainWindow", ''))
-            
+        
+        if data.table_empty:
+            self.Monitor.removeRow(0)
+            return
         row_count = 0
         col_count = 0
         for lines in data.content:

@@ -19,9 +19,14 @@ class imports(QtWidgets.QMainWindow, Ui_MainWindow):
         pass
     
     def freshTableList(self):
-        self.set_Table.clear()
-        self.set_Table.addItems(data.table_list)
-        self.set_Table.setCurrentIndex(data.table_index)
+        if data.table_empty:
+            self.set_Table.clear()
+            self.set_Table.addItem("NULL")
+            self.set_Table.setCurrentIndex(0)
+        else:
+            self.set_Table.clear()
+            self.set_Table.addItems(data.table_list)
+            self.set_Table.setCurrentIndex(data.table_index)
     
     def dial(self,text,catagory='Notice'):#区分Error、Warning、Notice
         if data.nolog==1:

@@ -33,7 +33,7 @@
      <bool>true</bool>
     </attribute>
     <attribute name="verticalHeaderVisible">
-     <bool>false</bool>
+     <bool>true</bool>
     </attribute>
     <row/>
     <row/>
@@ -193,7 +193,7 @@
    <widget class="QWidget" name="viewer" native="true">
     <property name="geometry">
      <rect>
-      <x>820</x>
+      <x>1110</x>
       <y>100</y>
       <width>271</width>
       <height>565</height>
@@ -1693,7 +1693,7 @@
       <string>删除项</string>
      </property>
     </widget>
-    <widget class="QPushButton" name="pushButton_gai">
+    <widget class="QPushButton" name="pushButton_mod">
      <property name="geometry">
       <rect>
        <x>10</x>
