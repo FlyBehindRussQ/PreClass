@@ -193,7 +193,7 @@
    <widget class="QWidget" name="viewer" native="true">
     <property name="geometry">
      <rect>
-      <x>1110</x>
+      <x>820</x>
       <y>100</y>
       <width>271</width>
       <height>565</height>

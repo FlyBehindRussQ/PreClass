@@ -16,6 +16,14 @@ class Fstream(imports):
             fetch = cur.fetchall()
             data.table_list.clear()
             data.table_len.clear()
+            data.company_list = ['whole']
+            data.company_index = 0
+            data.type_list = ['whole']
+            data.type_index = 0
+            data.speed_list = ['whole']
+            data.speed_index = 0
+            data.frequency_list = ['whole']
+            data.frequency_index = 0
             if len(fetch)!=0:
                 data.table_empty = False
                 for i in range(0,len(fetch)):
@@ -29,26 +37,18 @@ class Fstream(imports):
                         data.table_len.append(0)
                 cur.execute("SELECT DISTINCT company FROM "+data.table_list[data.table_index])
                 fetch = cur.fetchall()
-                data.company_list = ['whole']
-                data.company_index = 0
                 for i in range(0,len(fetch)):
                     data.company_list.append(fetch[i][0])
                 cur.execute("SELECT DISTINCT type FROM "+data.table_list[data.table_index])
                 fetch = cur.fetchall()
-                data.type_list = ['whole']
-                data.type_index = 0
                 for i in range(0,len(fetch)):
                     data.type_list.append(fetch[i][0])
                 cur.execute("SELECT DISTINCT speed FROM "+data.table_list[data.table_index])
                 fetch = cur.fetchall()
-                data.speed_list = ['whole']
-                data.speed_index = 0
                 for i in range(0,len(fetch)):
                     data.speed_list.append(fetch[i][0])
                 cur.execute("SELECT DISTINCT frequency FROM "+data.table_list[data.table_index])
                 fetch = cur.fetchall()
-                data.frequency_list = ['whole']
-                data.frequency_index = 0
                 for i in range(0,len(fetch)):
                     data.frequency_list.append(fetch[i][0])
             else:
@@ -173,8 +173,7 @@ class Fstream(imports):
         db = sqlite3.connect("motor.db")
         cur = db.cursor()
         name = data.table_list[data.table_index]
-        print(cargo)
-        sql = f'''UPDATE {name} SET (company="%s",id="%s",type="%s",size="%s",power="%f",voltage="%f",current="%f",speed="%s",efficiency="%f",powerfactor="%f",frequency="%s",torque="%f",mass="%s",pole="%s") WHERE (num="%d")'''
+        sql = f'''UPDATE {name} SET company=?,id=?,type=?,size=?,power=?,voltage=?,current=?,speed=?,efficiency=?,powerfactor=?,frequency=?,torque=?,mass=?,pole=? WHERE num=?'''
         cur.execute(sql,cargo)
         db.commit()
         db.close()

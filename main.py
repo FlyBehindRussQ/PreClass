@@ -17,7 +17,6 @@ class MyMainWindow(Viewer,Editor,Fstream):
         pass
     
     
-        
     def table_Changed(self,params):
         data.table_index = params
         if data.mode==0:

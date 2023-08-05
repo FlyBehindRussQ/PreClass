@@ -79,7 +79,7 @@ class Ui_MainWindow(object):
         self.pushButton_mode.setFont(font)
         self.pushButton_mode.setObjectName("pushButton_mode")
         self.viewer = QtWidgets.QWidget(self.centralwidget)
-        self.viewer.setGeometry(QtCore.QRect(1110, 100, 271, 565))
+        self.viewer.setGeometry(QtCore.QRect(820, 100, 271, 565))
         self.viewer.setObjectName("viewer")
         self.set_Speed = QtWidgets.QComboBox(self.viewer)
         self.set_Speed.setGeometry(QtCore.QRect(100, 290, 160, 30))
