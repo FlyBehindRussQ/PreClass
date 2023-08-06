@@ -7,6 +7,7 @@ class MyMainWindow(Viewer,Editor,Fstream):
         super(Viewer, self).__init__(parent)
         super(Editor, self).__init__(parent)
         super(Fstream, self).__init__(parent)
+        self.forbid_Viewer()
         self.init_Viewer()
         self.signals_Viewer()
         self.init_Editor()

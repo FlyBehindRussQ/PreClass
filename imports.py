@@ -28,20 +28,24 @@ class imports(QtWidgets.QMainWindow, Ui_MainWindow):
             self.set_Table.addItems(data.table_list)
             self.set_Table.setCurrentIndex(data.table_index)
     
-    def dial(self,text,catagory='Notice'):#区分Error、Warning、Notice
-        if data.nolog==1:
+    def dial(self,text,catagory='Notice'):
+        if data.nodial==1:
             pass
         else:
             data.log_counts += 1
             if catagory == "Error":
                 str=f'''<p style="color:rgb(255,0,0)">[{data.log_counts}] {text}</p>'''
             elif catagory == 'Warning':
-                str=f'''<p style="color:rgb(200,180,0)">[{data.log_counts}] {text}</p>'''
+                str=f'''<p style="color:rgb(170,170,50)">[{data.log_counts}] {text}</p>'''
             else:
                 str=f'''<p style="color:rgb(0,0,0)">[{data.log_counts}] {text}</p>'''
             self.dialogue.append(str)
             
-    def record(self,text):
-        data.code_counts += 1
-        str=f'''[{data.code_counts}] {text}'''
+    def record(self,text,catagory='Notice'):
+        if catagory == "Error":
+            str=f'''<p style="color:rgb(255,0,0)">[{data.log_counts}] {text}</p>'''
+        elif catagory == 'Warning':
+            str=f'''<p style="color:rgb(170,170,50)">[{data.log_counts}] {text}</p>'''
+        else:
+            str=f'''<p style="color:rgb(0,0,0)">[{data.log_counts}] {text}</p>'''
         self.coding.append(str)

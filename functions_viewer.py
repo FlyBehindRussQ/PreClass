@@ -4,6 +4,7 @@ class Viewer(Fstream):
     def __init__(self, parent=None) -> None:
         # super().__init__(parent)
         pass
+        
     
     def display_view(self):
         self.Monitor.clearContents()
@@ -42,13 +43,17 @@ class Viewer(Fstream):
             if row_count==self.Monitor.rowCount():
                 self.Monitor.insertRow(row_count)
         self.Monitor.removeRow(row_count)
-    
+
     
     def select_Hide(self,index):
-        data.visible[index] = 1 - data.visible[index]
+        if data.visible[index]==0:
+            data.visible[index] = 1
+            self.dial(f'''显示列'{data.header[index]}'！''',catagory="Notice")
+        elif data.visible[index]==1:
+            data.visible[index] = 0
+            self.dial(f'''隐藏列'{data.header[index]}'！''',catagory="Notice")
         self.display_view()
-    
-    
+
     def select_Sort(self,index):
         _translate = QCoreApplication.translate
         for i in range(0,7):
@@ -60,27 +65,34 @@ class Viewer(Fstream):
             obj = [self.set_Power_3,self.set_Voltage_3,self.set_Current_3,self.set_rpm_3,self.set_Efficiency_3,self.set_PowerFactor_3,self.set_Torque_3][i]
             obj.setText(_translate("MainWindow", text))
             obj.repaint()
+        if data.sort[index]!=0:
+            self.dial(f'''按'{data.header[index]}'{["","顺序","倒序"][data.sort[index]]}排序！''',catagory="Notice")
+        else:
+            self.dial(f'''取消排序！''',catagory="Notice")
         self.display_view()
-    
-    
+
     def select_Company(self,params):
         data.company_index = params
+        if params==0:
+            self.dial(f'''取消筛选'企业' ''',catagory="Notice")
+        else:
+            self.dial(f'''筛选'企业'：{data.company_list[params]}''',catagory="Notice")
         self.display_view()
-     
-     
+        
     def select_ID(self):
-        pass
-    
-    
+        self.set_ID.setCurrentIndex(0)
+        
     def select_Type(self,params):
         data.type_index = params
+        if params==0:
+            self.dial(f'''取消筛选'类型' ''',catagory="Notice")
+        else:
+            self.dial(f'''筛选'类型'：{data.type_list[params]}''',catagory="Notice")
         self.display_view()
-    
-    
+        
     def select_Size(self):
-        pass
-    
-    
+        self.set_Size.setCurrentIndex(0)
+        
     def select_Power(self):
         if self.set_Power_lower.text()!="":
             data.set_boundary[0] = 1
@@ -92,9 +104,9 @@ class Viewer(Fstream):
             data.boundary[1] = self.set_Power_upper.text()
         else:
             data.boundary[1] = '99999999'
+        self.dial(f'''筛选'功率'：{data.boundary[0]} ~ {data.boundary[1]}''',catagory="Notice")
         self.display_view()
-    
-    
+        
     def select_Voltage(self):
         if self.set_Voltage_lower.text()!="":
             data.set_boundary[1] = 1
@@ -106,9 +118,9 @@ class Viewer(Fstream):
             data.boundary[3] = self.set_Voltage_upper.text()
         else:
             data.boundary[3] = '99999999'
+        self.dial(f'''筛选'电压'：{data.boundary[2]} ~ {data.boundary[3]}''',catagory="Notice")
         self.display_view()
-    
-    
+        
     def select_Current(self):
         if self.set_Current_lower.text()!="":
             data.set_boundary[2] = 1
@@ -120,9 +132,9 @@ class Viewer(Fstream):
             data.boundary[5] = self.set_Current_upper.text()
         else:
             data.boundary[5] = '99999999'
+        self.dial(f'''筛选'电流'：{data.boundary[4]} ~ {data.boundary[5]}''',catagory="Notice")
         self.display_view()
-    
-    
+        
     def select_rpm(self):
         if self.set_rpm_lower.text()!="":
             data.set_boundary[3] = 1
@@ -134,14 +146,17 @@ class Viewer(Fstream):
             data.boundary[7] = self.set_rpm_upper.text()
         else:
             data.boundary[7] = '99999999'
+        self.dial(f'''筛选'转速'：{data.boundary[6]} ~ {data.boundary[7]}''',catagory="Notice")
         self.display_view()
-    
-    
+        
     def select_Speed(self,params):
         data.speed_index = params
+        if params==0:
+            self.dial(f'''取消筛选'转速' ''',catagory="Notice")
+        else:
+            self.dial(f'''筛选'转速'：{data.speed_list[params]}''',catagory="Notice")
         self.display_view()
-    
-    
+        
     def select_Efficiency(self):
         if self.set_Efficiency_lower.text()!="":
             data.set_boundary[4] = 1
@@ -153,9 +168,9 @@ class Viewer(Fstream):
             data.boundary[9] = self.set_Efficiency_upper.text()
         else:
             data.boundary[9] = '99999999'
+        self.dial(f'''筛选'效率'：{data.boundary[8]} ~ {data.boundary[9]}''',catagory="Notice")
         self.display_view()
-    
-    
+
     def select_PowerFactor(self):
         if self.set_PowerFactor_lower.text()!="":
             data.set_boundary[5] = 1
@@ -167,14 +182,17 @@ class Viewer(Fstream):
             data.boundary[11] = self.set_PowerFactor_upper.text()
         else:
             data.boundary[11] = '99999999'
+        self.dial(f'''筛选'功率因数'：{data.boundary[10]} ~ {data.boundary[11]}''',catagory="Notice")
         self.display_view()
-    
-    
+
     def select_Frequency(self,params):
         data.frequency_index = params
+        if params==0:
+            self.dial(f'''取消筛选'频率' ''',catagory="Notice")
+        else:
+            self.dial(f'''筛选'频率'：{data.frequency_list[params]}''',catagory="Notice")
         self.display_view()
-    
-    
+
     def select_Torque(self):
         if self.set_Torque_lower.text()!="":
             data.set_boundary[6] = 1
@@ -186,103 +204,87 @@ class Viewer(Fstream):
             data.boundary[13] = self.set_Torque_upper.text()
         else:
             data.boundary[13] = '99999999'
+        self.dial(f'''筛选'转矩'：{data.boundary[12]} ~ {data.boundary[13]}''',catagory="Notice")
         self.display_view()
-    
-    
+
     def select_Mass(self):
         pass
-    
-    
+        
     def select_Pole(self):
         pass
-    
-    
+        
     def reselect_Power(self):
         data.set_boundary[0] = 0
         data.boundary[0] = '0'
         data.boundary[1] = '99999999'
         self.set_Power_lower.clear()
         self.set_Power_upper.clear()
+        self.dial(f'''取消筛选'功率' ''',catagory="Notice")
         self.display_view()
-    
-    
+        
     def reselect_Voltage(self):
         data.set_boundary[1] = 0
         data.boundary[2] = '0'
         data.boundary[3] = '99999999'
         self.set_Voltage_lower.clear()
         self.set_Voltage_upper.clear()
+        self.dial(f'''取消筛选'电压' ''',catagory="Notice")
         self.display_view()
-    
-    
+        
     def reselect_Current(self):
         data.set_boundary[2] = 0
         data.boundary[4] = '0'
         data.boundary[5] = '99999999'
         self.set_Current_lower.clear()
         self.set_Current_upper.clear()
+        self.dial(f'''取消筛选'电流' ''',catagory="Notice")
         self.display_view()
-    
-    
+        
     def reselect_rpm(self):
         data.set_boundary[3] = 0
         data.boundary[6] = '0'
         data.boundary[7] = '99999999'
         self.set_rpm_lower.clear()
         self.set_rpm_upper.clear()
+        self.dial(f'''取消筛选'转速' ''',catagory="Notice")
         self.display_view()
-    
-    
+        
     def reselect_Efficiency(self):
         data.set_boundary[4] = 0
         data.boundary[8] = '0'
         data.boundary[9] = '99999999'
         self.set_Efficiency_lower.clear()
         self.set_Efficiency_upper.clear()
+        self.dial(f'''取消筛选'效率' ''',catagory="Notice")
         self.display_view()
-    
-    
+        
     def reselect_PowerFactor(self):
         data.set_boundary[5] = 0
         data.boundary[10] = '0'
         data.boundary[11] = '99999999'
         self.set_PowerFactor_lower.clear()
         self.set_PowerFactor_upper.clear()
+        self.dial(f'''取消筛选'功率因数' ''',catagory="Notice")
         self.display_view()
-    
-    
+        
     def reselect_Torque(self):
         data.set_boundary[6] = 0
         data.boundary[12] = '0'
         data.boundary[13] = '99999999'
         self.set_Torque_lower.clear()
         self.set_Torque_upper.clear()
+        self.dial(f'''取消筛选'转矩' ''',catagory="Notice")
         self.display_view()
-    
-    
+        
     def reselect_Mass(self):
         pass
-    
+        
     
     def init_Viewer(self):
         self.DB_Load()
         self.freshTableList()
         
-        data.visible = [1,1,1,1,1,1,1,1,1,1,1,1,1,1,1]
-        self.tick_Company.setChecked(True)
-        self.tick_ID.setChecked(True)
-        self.tick_Type.setChecked(True)
-        self.tick_Size.setChecked(True)
-        self.tick_Power.setChecked(True)
-        self.tick_Voltage.setChecked(True)
-        self.tick_Current.setChecked(True)
-        self.tick_Speed.setChecked(True)
-        self.tick_Efficiency.setChecked(True)
-        self.tick_PowerFactor.setChecked(True)
-        self.tick_Frequency.setChecked(True)
-        self.tick_Torque.setChecked(True)
-        self.tick_Mass.setChecked(True)
-        self.tick_Pole.setChecked(True)
+        data.nodial = 1
         
         self.set_Company.clear()
         self.set_Company.addItems(data.company_list)
@@ -303,23 +305,9 @@ class Viewer(Fstream):
             obj = [self.set_Power_3,self.set_Voltage_3,self.set_Current_3,self.set_rpm_3,self.set_Efficiency_3,self.set_PowerFactor_3,self.set_Torque_3][i]
             obj.setText(_translate("MainWindow", "↓"))
             obj.repaint()
+        data.nodial = 0
         
-        self.set_ID.clear()
-        self.set_ID.addItem("暂未开放！")
-        self.set_Size.clear()
-        self.set_Size.addItem("暂未开放！")
-        self.set_Pole.clear()
-        self.set_Pole.addItem("暂未开放！")
-        self.set_Mass_lower.setText("暂未")
-        self.set_Mass_upper.setText("开放")
-        self.set_rpm.setVisible(False)
-        self.set_rpm_2.setVisible(False)
-        self.set_rpm_3.setVisible(False)
-        self.set_rpm_lower.setVisible(False)
-        self.set_rpm_upper.setVisible(False)
-        self.set_PowerFactor_3.setVisible(False)
     
-        
     def signals_Viewer(self):
         self.tick_Company.stateChanged.connect(lambda: self.select_Hide(1))
         self.tick_ID.stateChanged.connect(lambda: self.select_Hide(2))
@@ -346,9 +334,9 @@ class Viewer(Fstream):
         # self.set_Mass_3.clicked.connect(lambda: self.select_Sort(__))
         
         self.set_Company.activated.connect(self.select_Company)
-        # self.set_ID.activated.connect(self.select_ID)
+        self.set_ID.activated.connect(self.select_ID)
         self.set_Type.activated.connect(self.select_Type)
-        # self.set_Size.activated.connect(self.select_Size)
+        self.set_Size.activated.connect(self.select_Size)
         self.set_Power.clicked.connect(self.select_Power)
         self.set_Voltage.clicked.connect(self.select_Voltage)
         self.set_Current.clicked.connect(self.select_Current)
@@ -359,7 +347,7 @@ class Viewer(Fstream):
         self.set_Frequency.activated.connect(self.select_Frequency)
         self.set_Torque.clicked.connect(self.select_Torque)
         # self.set_Mass.clicked.connect(self.select_Mass)
-        # self.set_Pole.activated.connect(self.select_Pole)
+        self.set_Pole.activated.connect(self.select_Pole)
         
         self.set_Power_2.clicked.connect(self.reselect_Power)
         self.set_Voltage_2.clicked.connect(self.reselect_Voltage)
@@ -369,3 +357,40 @@ class Viewer(Fstream):
         self.set_PowerFactor_2.clicked.connect(self.reselect_PowerFactor)
         self.set_Torque_2.clicked.connect(self.reselect_Torque)
         # self.set_Mass_2.clicked.connect(self.reselect_Mass)
+        
+    
+    def forbid_Viewer(self):
+        self.set_ID.clear()
+        self.set_ID.addItem("暂未开放！")
+        self.set_ID.addItem("主要是不太用得上")
+        self.set_Size.clear()
+        self.set_Size.addItem("暂未开放！")
+        self.set_Size.addItem("主要是不太用得上")
+        self.set_Pole.clear()
+        self.set_Pole.addItem("暂未开放！")
+        self.set_Pole.addItem("主要数据有问题")
+        self.set_Mass_lower.setText("暂未")
+        self.set_Mass_upper.setText("开放")
+        self.set_Mass_lower.setReadOnly(True)
+        self.set_Mass_upper.setReadOnly(True)
+        self.set_rpm.setVisible(False)
+        self.set_rpm_2.setVisible(False)
+        self.set_rpm_3.setVisible(False)
+        self.set_rpm_lower.setVisible(False)
+        self.set_rpm_upper.setVisible(False)
+        self.set_PowerFactor_3.setVisible(False)
+        
+        self.tick_Company.setChecked(True)
+        self.tick_ID.setChecked(True)
+        self.tick_Type.setChecked(True)
+        self.tick_Size.setChecked(True)
+        self.tick_Power.setChecked(True)
+        self.tick_Voltage.setChecked(True)
+        self.tick_Current.setChecked(True)
+        self.tick_Speed.setChecked(True)
+        self.tick_Efficiency.setChecked(True)
+        self.tick_PowerFactor.setChecked(True)
+        self.tick_Frequency.setChecked(True)
+        self.tick_Torque.setChecked(True)
+        self.tick_Mass.setChecked(True)
+        self.tick_Pole.setChecked(True)

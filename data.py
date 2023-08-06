@@ -6,9 +6,9 @@ content = None
 ##########################
 mode = 0
 
-nolog = 0
+nodial = 0
+log_empty = 0
 log_counts = 0
-code_counts = 0
 
 table_len = []
 table_list = []
