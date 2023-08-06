@@ -2,4 +2,4 @@ __pycache__/
 motor.db
 motor.xlsx
 -- SQLite.sql
-*.xlsx
+# *.xlsx
