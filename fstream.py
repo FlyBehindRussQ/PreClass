@@ -242,7 +242,7 @@ class Fstream(imports):
         db.close()
     
     def DB_Import(self):
-        temp = QtWidgets.QFileDialog.getOpenFileName(self, "选取xlsx文件", r"name.xlsx","Excel File(*.xlsx;*.xls)")
+        temp = QtWidgets.QFileDialog.getOpenFileName(self, "选取xlsx文件", r"dataFile/name.xlsx","Excel File(*.xlsx;*.xls)")
         if temp[0] == '':
             # self.dial(f'''导入表格文件失败！''',catagory="Error")
             return
@@ -278,7 +278,7 @@ class Fstream(imports):
     
     def DB_Export(self, index):
         if not index==-1:
-            path = data.table_list[index]+".xlsx"
+            path = "output/"+data.table_list[index]+".xlsx"
             book = Workbook(path)
             sheet = book.add_worksheet()
             self.DB_Read(index)
@@ -287,7 +287,7 @@ class Fstream(imports):
                     sheet.write(i, j, value)
             book.close()
         else:
-            book = Workbook("motor.xlsx")
+            book = Workbook("output/motor.xlsx")
             for name in data.table_list:
                 sheet = book.add_worksheet(name=name)
                 self.DB_Read(data.table_list.index(name))
