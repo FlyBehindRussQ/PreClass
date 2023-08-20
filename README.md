@@ -6,9 +6,12 @@ Hi-MotorDB 系 Hi-Motor 团队旗下的同步磁阻电机数据库，为 Hi-Moto
 
 本软件由Hi-Motor团队成员李俊昊，华中科技大学电气与电子工程学院电气2102班学生，藉学院软件工程训练营之际，以巩固数据库相关知识为目标，于2023年8月独立编写。
 
-友情链接：
+<br />友情链接：
+
 <u>[Hi-Motor 团队](www.hi-motor.site)</u>
+
 <u>[Hi-Motor HUB 高效电机选型设计网站](https://hub.hi-motor.site)</u>
+
 <label style="color:#0097db"><u>Hi-Motor Designer 同步磁阻电机智能优化设计软件</u></label>（维护中）
 
 <br />
