@@ -1,5 +1,2 @@
 pyqt5
-matplotlib
-numpy
-pandas
-scipy
+openpyxl
