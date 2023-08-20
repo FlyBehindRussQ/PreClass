@@ -1,6 +1,6 @@
 # -*- coding: utf-8 -*-
 
-# Form implementation generated from reading ui file 'e:\#Lightyear#\File\College\资料\电气实践\工程训练营\Code\PreClass\DataBaseWidget.ui'
+# Form implementation generated from reading ui file 'e:\#Lightyear#\File\College\资料\电气实践\工程训练营\#Project\PreClass\DataBaseWidget.ui'
 #
 # Created by: PyQt5 UI code generator 5.15.4
 #
@@ -764,7 +764,7 @@ class Ui_MainWindow(object):
 
     def retranslateUi(self, MainWindow):
         _translate = QtCore.QCoreApplication.translate
-        MainWindow.setWindowTitle(_translate("MainWindow", "区区数据库"))
+        MainWindow.setWindowTitle(_translate("MainWindow", "Hi-MotorDB"))
         item = self.Monitor.horizontalHeaderItem(0)
         item.setText(_translate("MainWindow", "序号"))
         item = self.Monitor.horizontalHeaderItem(1)
