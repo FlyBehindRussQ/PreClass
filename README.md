@@ -1,4 +1,4 @@
-## <center> Hi-MotorDB 软件说明文档
+## <center> Hi-MotorDB 软件说明文档 </center>
 
 ### 1.软件简介
 
@@ -10,15 +10,27 @@
 ### 2.软件概要
 
 > 软件环境：Window 7 及以上版本
+> 
 > 硬件环境：PC CPU 1GHz 内存 1GB 硬盘 10GB
+> 
 > 开发语言：Python 3.8
+> 
 > 开发工具：Microsoft VSCode 1.74.2
+> 
 > 数 据 库：SQLite 3.31.1
+> 
 > GUI&emsp;&emsp;：PyQt5 5.15.4
 
 
 ### 3.安装流程
 
 ##### 3.1 从Github获取软件资源
-本软件在Github上开源 <u>[点击此处获取软件资源](https://github.com/Lightyear-li/Hi-MotorDB)</u>
-![Github](Github.png)
+本软件在Github上开源，License GUN GPL3.0 &emsp;<u>[点击此处获取软件资源](https://github.com/Lightyear-li/Hi-MotorDB)</u>
+<center> <img src='Github_screenshot.png'> </center>
+<center> Github软件资源 </center>
+
+##### 3.2 获取软件应用程序
+
+
+##### 3.3 获取软件源代码
+
