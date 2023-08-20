@@ -279,20 +279,23 @@ class Fstream(imports):
     def DB_Export(self, index):
         if not index==-1:
             path = "output/"+data.table_list[index]+".xlsx"
-            book = Workbook(path)
-            sheet = book.add_worksheet()
+            book = openpyxl.Workbook()
+            sheet = book.active
+            sheet.title = data.table_list[index]
             self.DB_Read(index)
             for i, lines in enumerate(data.content):
                 for j, value in enumerate(lines):
-                    sheet.write(i, j, value)
-            book.close()
+                    sheet.cell(i+1, j+1, value)
+            book.save(path)
         else:
-            book = Workbook("output/motor.xlsx")
+            book = openpyxl.Workbook()
             for name in data.table_list:
-                sheet = book.add_worksheet(name=name)
+                sheet = book.create_sheet(index=data.table_list.index(name))
+                sheet.title = name
                 self.DB_Read(data.table_list.index(name))
                 for i, lines in enumerate(data.content):
                     for j, value in enumerate(lines):
-                        sheet.write(i, j, value)
-            book.close()
+                        sheet.cell(i+1, j+1, value)
+            del book['Sheet']
+            book.save("output/motor.xlsx")
         self.dial(f'''导出完毕！''',catagory="Notice")

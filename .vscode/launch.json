@@ -8,7 +8,7 @@
             "name": "Python: Current File",
             "type": "python",
             "request": "launch",
-            "program": "${cwd}/run.py",
+            "program": "${cwd}/code/run.py",
             "console": "integratedTerminal",
             "justMyCode": true
         }
