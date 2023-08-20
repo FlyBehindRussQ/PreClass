@@ -19,4 +19,6 @@
 
 ### 3.安装流程
 
-##### 3.1 
+##### 3.1 从Github获取软件资源
+本软件在Github上开源 <u>[点击此处获取软件资源](https://github.com/Lightyear-li/Hi-MotorDB)</u>
+![Github](Github.png)
