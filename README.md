@@ -14,7 +14,7 @@ Hi-MotorDB 系 Hi-Motor 团队旗下的同步磁阻电机数据库，为 Hi-Moto
 
 <u>[Hi-Motor HUB 高效电机选型设计网站](https://hub.hi-motor.site)</u>
 
-<label style="color:#0097db"><u>Hi-Motor Designer 同步磁阻电机智能优化设计软件</u></label>（维护中）
+<u>[Hi-Motor Designer 同步磁阻电机智能优化设计软件](www.hi-motor.site)</u>（维护中）
 
 <br />
 
@@ -28,7 +28,7 @@ Hi-MotorDB 系 Hi-Motor 团队旗下的同步磁阻电机数据库，为 Hi-Moto
 > 
 > 开发工具：Microsoft VSCode 1.74.2
 > 
-> 数 据 库：SQLite 3.31.1
+> 数 据 库 ：SQLite 3.31.1
 > 
 > GUI&emsp;&emsp;：PyQt5 5.15.4
 
@@ -38,12 +38,12 @@ Hi-MotorDB 系 Hi-Motor 团队旗下的同步磁阻电机数据库，为 Hi-Moto
 
 ### 3.1 从Github获取软件资源
 本软件在 Github 上开源，*License GUN GPL 3.0* &emsp;<u>[点击此处获取软件资源](https://github.com/Lightyear-li/Hi-MotorDB/releases/tag/Realease)</u>
-<center> <img src='image/Github_screenshot.png' width=500> </center>
-<center> <img src='image/Release_screenshot.png'width=500> </center>
+<center> <img src='image/Github_screenshot.png' width=700> </center>
+<center> <img src='image/Release_screenshot.png'width=700> </center>
 
 ### 3.2 获取软件应用程序
 点击 <u>**_Hi-MotorDB.zip_**</u> 下载软件应用程序压缩包，双击 <u>**_Hi-MotorDB.exe_**</u> 直接使用软件。
-<center> <img src='image/Exe_screenshot.png' width=500> </center>
+<center> <img src='image/Exe_screenshot.png' width=700> </center>
 
 ### 3.3 获取软件源代码
 点击 <u>**_Sourse code (zip)_**</u> 下载软件源代码压缩包，
@@ -62,7 +62,7 @@ pip install openpyxl
 点击软件界面右下角 **`"阅览"`**/**`"编辑"`** ，在 **Hi-MotorDB Viewer** 与 **Hi-MotorDB Editor** 之间进行切换。
 
 ### 4.1 Hi-MotorDB Viewer 数据库阅览器
-<center> <img src='image/viewer.png' width=500> </center>
+<center> <img src='image/viewer.png' width=700> </center>
 <br />
 Hi-MotorDB Viewer 数据库阅览器提供了高效电机数据库的可视化阅览功能，支持排序、筛选等功能。
 
@@ -73,7 +73,7 @@ Hi-MotorDB Viewer 数据库阅览器提供了高效电机数据库的可视化�
 <br />
 
 ### 4.2 Hi-MotorDB Editor 数据库编辑器
-<center> <img src='image/editor.png',width=500> </center>
+<center> <img src='image/editor.png',width=700> </center>
 <br />
 Hi-MotorDB Editor 数据库编辑器提供了高效电机数据库的可视化编辑功能，支持对数据库导入、导出、增、删、改等功能。
 
