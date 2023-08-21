@@ -8,12 +8,12 @@ from DataBaseWidget import Ui_MainWindow
 import os
 import data
 
-class imports(QtWidgets.QMainWindow, Ui_MainWindow):
+class Imports(QtWidgets.QMainWindow, Ui_MainWindow):
     def __del__(self):
         pass
     
     def __init__(self, parent=None) -> None:
-        super(imports, self).__init__(parent)
+        super(Imports, self).__init__(parent)
         self.setupUi(self)
         pass
     

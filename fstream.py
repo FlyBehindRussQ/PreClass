@@ -1,8 +1,8 @@
 from imports import *
 
-class Fstream(imports):
+class Fstream(Imports):
     def __init__(self, parent=None) -> None:
-        # super(imports, self).__init__(parent)
+        # super(Imports, self).__init__(parent)
         pass
     
     def DB_Load(self):
