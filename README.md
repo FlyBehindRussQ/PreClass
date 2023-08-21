@@ -37,7 +37,7 @@ Hi-MotorDB 系 Hi-Motor 团队旗下的同步磁阻电机数据库，为 Hi-Moto
 ## 3. 软件安装流程
 
 ### 3.1 从Github获取软件资源
-本软件在 Github 上开源，*License GUN GPL 3.0* &emsp;<u>[点击此处获取软件资源](https://github.com/Lightyear-li/Hi-MotorDB/releases/tag/Realease)</u>
+本软件在 Github 上开源，<u>**_License GUN GPL 3.0_**</u> &emsp;<u>[点击此处获取软件资源](https://github.com/Lightyear-li/Hi-MotorDB/releases/tag/Realease)</u>
 <center> <img src='image/Github_screenshot.png' width=700> </center>
 <center> <img src='image/Release_screenshot.png'width=700> </center>
 
@@ -89,11 +89,11 @@ Hi-MotorDB Editor 数据库编辑器提供了高效电机数据库的可视化�
 
 ## 5.软件API详解
 
-外置库 PyQt5、openxlsx、sqlite 所提供的API本文不再进行阐述。
+外置库 `PyQt5`、`openxlsx`、`sqlite` 所提供的API本文不再进行阐述。
 
 ### 5.1 类方法
 
-#### 5.1.1 Ui_MainWindow 类及其方法
+#### >> 5.1.1 Ui_MainWindow 类及其方法
 ``` python
 class Ui_MainWindow(object):
     def setupUi(self, MainWindow):···
@@ -101,7 +101,7 @@ class Ui_MainWindow(object):
 ```
 `Ui_MainWindow(object)`为GUI界面类，由Pyuic自动生成，包含`setupUi(self, MainWindow)`与`retranslateUi(self, MainWindow)`两个方法。`setupUi()`为GUI界面控件的完整定义`retranslateUi()`为GUI界面内中文文本的翻译设置。
 
-#### 5.1.2 Imports 类及其方法
+#### >> 5.1.2 Imports 类及其方法
 ``` python
 class Imports(QtWidgets.QMainWindow, Ui_MainWindow):
     def __init__(self, parent=None):···
@@ -111,7 +111,7 @@ class Imports(QtWidgets.QMainWindow, Ui_MainWindow):
 ```
 `Imports(QtWidgets.QMainWindow, Ui_MainWindow)`为基本工具类，包含`__init__(self, parent=None)`、`freshTableList(self)`、`dial(self,text,catagory='Notice')`、`record(self,text,catagory='Notice')`四个方法，`__init__()`类初始化方法调用`setupUi()`完成对GUI界面类的定义，`freshTableList()`刷新表格列表状态，`dial()`显示对话栏内容，`record()`显示SQL编程代码。
 
-#### 5.1.3 Fstream 类及其方法
+#### >> 5.1.3 Fstream 类及其方法
 ``` python
 class Fstream(Imports):
     def DB_Load(self):···
@@ -127,7 +127,7 @@ class Fstream(Imports):
 ```
 `Fstream(Imports)`为数据库操作类，包含`DB_Load(self)`、`DB_Read(self,index)`、`DB_NewTable(self,name)`、`DB_DropTable(self,index)`、`DB_AddItem(self,cargo)`、`DB_DelItem(self,index)`、`DB_SearchItem(self,index)`、`DB_ModifyItem(self,cargo)`、`DB_Import(self)`、`DB_Export(self, index)`十个方法，分别对应数据库加载、读取、表格创建、表格删除、项添加、项删除、项搜索、项修改以及导入与导出。
 
-#### 5.1.4 Viewer 类及其方法
+#### >> 5.1.4 Viewer 类及其方法
 ``` python
 class Viewer(Fstream):
     def display_view(self):···
@@ -160,7 +160,7 @@ class Viewer(Fstream):
 ```
 `Viewer(Fstream)`为阅览器方法类，包含`display_view(self)`数据库可视化方法、`select_X(self,···):`数据筛选系列方法、`reselect_X(self,···)`数据重置系列方法、`init_Viewer(self)`阅览器界面初始化方法、`signals_Viewer(self)`阅览器界面槽函数连接方法、`forbid_Viewer(self)`阅览器未开放设置方法。
 
-#### 5.1.5 Editor 类及其方法
+#### >> 5.1.5 Editor 类及其方法
 ``` python
 class Editor(Fstream):
     def display_edit(self):···
@@ -183,7 +183,7 @@ class Editor(Fstream):
 ```
 `Editor(Fstream)`为编辑器方法类，包含`display_edit(self)`数据库可视化方法（该方法较阅览器方法更为简便）、`opt_X(self)`按键功能对话框定义系列方法、`data_X(self)`按键功能对应数据库操作类方法调用系列方法、`init_Editor(self)`编辑器界面初始化方法、`signals_Editor(self)`编辑器界面槽函数连接方法。
 
-#### 5.1.6 MyMainWindow 类及其方法
+#### >> 5.1.6 MyMainWindow 类及其方法
 ``` python
 class MyMainWindow(Viewer,Editor,Fstream):
     def __init__(self, parent=None):···
@@ -194,7 +194,7 @@ class MyMainWindow(Viewer,Editor,Fstream):
 
 ### 5.2 函数
 
-#### 5.2.1 LaunchMainWidget()
+#### >> 5.2.1 LaunchMainWidget()
 ``` python
 def LaunchMainWidget():
     application = QApplication(sys.argv)
