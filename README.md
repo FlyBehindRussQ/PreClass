@@ -40,12 +40,10 @@ Hi-MotorDB 系 Hi-Motor 团队旗下的同步磁阻电机数据库，为 Hi-Moto
 本软件在 Github 上开源，*License GUN GPL 3.0* &emsp;<u>[点击此处获取软件资源](https://github.com/Lightyear-li/Hi-MotorDB/releases/tag/Realease)</u>
 <center> <img src='image/Github_screenshot.png'> </center>
 <center> <img src='image/Release_screenshot.png'> </center>
-<center> Github 软件资源 </center>
 
 ### 3.2 获取软件应用程序
 点击 <u>**_Hi-MotorDB.zip_**</u> 下载软件应用程序压缩包，双击 <u>**_Hi-MotorDB.exe_**</u> 直接使用软件。
-<center> <img src='image/Exe_screenshot.png'> </center>
-<center> Hi-MotorDB 软件目录 </center>
+<center> <img src='image/Exe_screenshot.png' width=200> </center>
 
 ### 3.3 获取软件源代码
 点击 <u>**_Sourse code (zip)_**</u> 下载软件源代码压缩包，
@@ -65,19 +63,17 @@ pip install openpyxl
 
 ### 4.1 Hi-MotorDB Viewer 数据库阅览器
 <center> <img src='image/viewer.png'> </center>
-<center> Hi-MotorDB Viewer </center>
 <br />
 Hi-MotorDB Viewer 数据库阅览器提供了高效电机数据库的可视化阅览功能，支持排序、筛选等功能。
 
 - 点击 **`↑`** **`↓`** 进行数据排序，点击 **`⌀`** 恢复默认排序
-- 点击下拉框<img src='image/comboBox.png'>筛选文字类数据，在编辑框<img src='image/edit.png'>中键入最大值与最小值，点击 **`√`** 筛选数值类数据，点击 **`⌀`** 重置该项筛选
+- 点击下拉框 <img src='image/comboBox.png'> 筛选文字类数据，在编辑框 <img src='image/edit.png'> 中键入最大值与最小值，点击 **`√`** 筛选数值类数据，点击 **`⌀`** 重置该项筛选
 - 目前由于没有测试数据，暂未开放 “重量” 与 “极数” 筛选功能
 
 <br />
 
 ### 4.2 Hi-MotorDB Editor 数据库编辑器
 <center> <img src='image/editor.png'> </center>
-<center> Hi-MotorDB Editor </center>
 <br />
 Hi-MotorDB Editor 数据库编辑器提供了高效电机数据库的可视化编辑功能，支持对数据库导入、导出、增、删、改等功能。
 
